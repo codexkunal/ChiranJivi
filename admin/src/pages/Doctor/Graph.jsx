@@ -946,6 +946,15 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import BP from '../../data/BP.json'
+import cough from '../../data/cough.json'
+import graph from '../../data/graph.json'
+import soreThroat from '../../data/soreThroat.json'
+import stomachPain from '../../data/stomachPain.json'
+
+import fever from '../../data/fever.json'
+
+
 
 ChartJS.register(
   CategoryScale,
@@ -970,7 +979,7 @@ const Graph = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch graph.json');
         }
-        const data = await response.json();
+        const data =graph
 
         const counts = {};
         data.forEach((entry) => {
@@ -984,21 +993,22 @@ const Graph = () => {
 
     const fetchLineChartData = async () => {
       try {
-        const feverResponse = await fetch('/fever.json');
-        const coughResponse = await fetch('/cough.json');
-        const stomachPainResponse = await fetch('/stomachPain.json');
-        const soreThroatResponse = await fetch('/soreThroat.json');
-        const bpResponse = await fetch('/BP.json');
+        // const feverResponse = await fetch('/fever.json');
+        // const coughResponse = await fetch('/cough.json');
+        // const stomachPainResponse = await fetch('/stomachPain.json');
+        // const soreThroatResponse = await fetch('/soreThroat.json');
+        // const bpResponse = await fetch('/BP.json');
+        // console.log("fffff",BP);
         
-        if (!feverResponse.ok || !coughResponse.ok || !stomachPainResponse.ok || !soreThroatResponse.ok || !bpResponse.ok) {
-          throw new Error('Failed to fetch one or more JSON files');
-        }
+        // if (!feverResponse.ok || !coughResponse.ok || !stomachPainResponse.ok || !soreThroatResponse.ok || !bpResponse.ok) {
+          // throw new Error('Failed to fetch one or more JSON files');
+        // }
 
-        const feverData = await feverResponse.json();
-        const coughData = await coughResponse.json();
-        const stomachPainData = await stomachPainResponse.json();
-        const soreThroatData = await soreThroatResponse.json();
-        const bpData = await bpResponse.json();
+        // const feverData = await feverResponse.json();
+        // const coughData = await coughResponse.json();
+        // const stomachPainData = await stomachPainResponse.json();
+        // const soreThroatData = await soreThroatResponse.json();
+        // const bpData = await bpResponse.json();
 
         const formatTrendData = (data) => {
           return data.map(entry => ({
@@ -1007,12 +1017,12 @@ const Graph = () => {
           }));
         };
 
-        setDailyTrend(formatTrendData(feverData));
+        setDailyTrend(formatTrendData(fever));
         setAdditionalTrends([ 
-          formatTrendData(coughData),
-          formatTrendData(stomachPainData),
-          formatTrendData(soreThroatData),
-          formatTrendData(bpData),
+          formatTrendData(cough),
+          formatTrendData(stomachPain),
+          formatTrendData(soreThroat),
+          formatTrendData(BP),
         ]);
         
       } catch (error) {
@@ -1195,7 +1205,7 @@ const Graph = () => {
   });
 
   return (
-    <div>
+    <div className=' w-full'>
       <div
         style={{
           padding: '20px',
