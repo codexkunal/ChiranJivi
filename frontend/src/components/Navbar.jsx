@@ -14,8 +14,8 @@ const Navbar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [aqi, setAqi] = useState(54);
 
-  // const pincode = userData.pincode;
-  const pincode = 307026;
+  const pincode = userData.pincode;
+  // const pincode = 307026;
 
 
   useEffect(() => {
@@ -42,7 +42,8 @@ const Navbar = () => {
     { path: '/doctors', label: 'Find Doctors' },
     { path: '/about', label: 'About Us' },
     { path: '/contact', label: 'Contact' },
-    { path: '/medicinescanner', label: 'Scan my Med' }
+    { path: '/medicinescanner', label: 'Scan my Med' },
+    {path : '/serchNearby', label : "Search Nearby Hospital"}
   ];
 
   const notifications = [

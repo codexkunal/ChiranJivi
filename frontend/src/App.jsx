@@ -26,9 +26,9 @@ import ZenPatterns from "./components/ZenPattern";
 import FocusFlow from "./components/FocusFlow";
 
 import ChatBot from "./components/ChatBot";
-import LangflowChat from "./pages/LangflowChat";
-
-
+import LangflowChat from "./pages/LangflowChat"; 
+import SearchNearby from "./components/SearchNearby"
+import  Hospitals  from "./components/Hospitals";
 
 
 
@@ -60,9 +60,11 @@ export default function App() {
         <Route path='/doctors/:speciality' element={<Doctors />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/serchNearby" element={<SearchNearby/>} />
         <Route path="/my-appointments" element={<MyAppointments />} />
         <Route path="/chatbot" element={<LangflowChat/>} />
         <Route path="/my-profile" element={<MyProfile />} />
+        <Route path="/hospitals" element={<Hospitals/>}/>
         
        </Routes> 
        {/* <Footer />  */}
