@@ -8,7 +8,7 @@ import doctorRouter from "./routes/doctorRoute.js";
 import adminRouter from "./routes/adminRoute.js";
 import mailRouter from "./routes/videoCallRoute.js";
 import chatbotRouter from "./routes/chatbotRoute.js";
-
+import chartRouter from "./routes/chartRoutes.js";
 const app = express()
 const PORT = process.env.PORT || 3000;
 connectDB();
@@ -25,6 +25,8 @@ app.use("/api/doctor", doctorRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/mail", mailRouter);
 app.use("/api", chatbotRouter);
+app.use("/api", chartRouter);
+
 
 app.get("/", (req, res) => {
     res.send("Hello from the backend!");
