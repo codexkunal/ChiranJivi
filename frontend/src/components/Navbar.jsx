@@ -146,7 +146,7 @@ const Navbar = () => {
                     <button className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-purple-500 transition-colors duration-200">
                       <div className="relative">
                         <img
-                          src={userData.image}
+                          // src={userData.image}
                           alt="Profile"
                           className="w-9 h-9 rounded-full object-cover ring-2 ring-purple-300"
                         />
@@ -158,8 +158,8 @@ const Navbar = () => {
                     <div className=" absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl py-2 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
 
                       <div className="px-4 py-2 border-b border-gray-100">
-                        <p className="text-sm font-medium text-gray-900">{userData.name}</p>
-                        <p className="text-xs text-gray-500 mt-0.5">{userData.email}</p>
+                        {/* <p className="text-sm font-medium text-gray-900">{userData.name}</p> */}
+                        {/* <p className="text-xs text-gray-500 mt-0.5">{userData.email}</p> */}
                       </div>
                       <button
                         onClick={() => navigate('/my-profile')}
