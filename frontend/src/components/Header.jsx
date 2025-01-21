@@ -20,7 +20,7 @@ const Header = () => {
 
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Your Health, &nbsp; &nbsp; &nbsp; Your Way —
+                Your Health<br/> Your Way —
                 <span className="mt-3 block bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-transparent">
                 Anytime, Anywhere
                 </span>

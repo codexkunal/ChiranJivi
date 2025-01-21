@@ -112,7 +112,7 @@ export default function LangflowChat() {
                         alt="Bot Logo"
                         className="h-8 w-8 object-contain bg-transparent rounded-2xl" // Customize size as needed
                       />
-                    SocialScope is thinking...
+                    ChiranJivi is thinking...
                   </div>
                 )}
                 <div ref={scrollRef}></div>

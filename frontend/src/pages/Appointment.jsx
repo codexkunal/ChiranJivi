@@ -23,7 +23,16 @@ const Appointment = () => {
     const foundDoc = doctors.find(doc => doc._id === docId);
     setDocInfo(foundDoc || null);
   };
+  const [image, setImage] = useState(null);
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => setImage(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
   const getAvailableSlots = () => {
     if (!docInfo) return; // Only fetch slots if doctor info is available
 
@@ -191,14 +200,46 @@ const Appointment = () => {
 </div>
         </div>
         <div className="my-6">
-            <input
+            {/* <input
               type="file"
               accept="image/*"
               id="fileUpload"
               onChange={(e)=> setreportImg(e.target.files[0])
             }
               className="hidden" // This hides the input field
+            /> */}
+            <input
+              type="file"
+              accept="image/*"
+              id="fileUpload"
+              onChange={handleImageChange
+            }
+              className="hidden" // This hides the input field
             />
+   {image && (
+  <div className="mt-4 mb-6 space-y-2">
+
+    <div className="p-4 border border-gray-200 rounded-lg shadow-lg bg-gray-50 inline-block items-center">
+      <div className="w-40 h-30 rounded-lg overflow-hidden">
+        <img
+          src={image}
+          alt="Uploaded Preview"
+          className="w-full h-full object-cover"
+          />
+      </div>
+    <button
+      className="mt-3 ml-4 px-4 py-1 text-sm font-medium text-white bg-red-500 rounded-md hover:bg-red-600 transition"
+      onClick={() => setImage(null)}
+      >
+      Remove Image
+    </button>
+    </div>
+
+  </div>
+)}
+
+
+
             <label
               htmlFor="fileUpload"
               className={`bg-primary text-white text-sm font-light px-10 py-3 rounded-full cursor-pointer ${

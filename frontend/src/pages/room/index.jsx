@@ -9,8 +9,10 @@ const RoomPage = () => {
     const { backendUrl, token, getDoctorsData } = useContext(AppContext)
     const navigate = useNavigate()
     const myMEeting = async (element) => {
-        const appID = 379706015;
-        const serverSecret = "119cca4c741ba1b9793d16b1a933ca52";
+        // const appID = 379706015;
+        const appID = 2012490625;
+        // const serverSecret = "119cca4c741ba1b9793d16b1a933ca52";
+        const serverSecret = "14bf2e295b67f4e2cc62b23adcb7595b";
         const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomId,  Date.now().toString(),"jugraj");
         const zp = ZegoUIKitPrebuilt.create(kitToken);
         zp.joinRoom({

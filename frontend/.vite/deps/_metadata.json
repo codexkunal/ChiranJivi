@@ -1,0 +1,100 @@
+{
+  "hash": "7179134f",
+  "configHash": "1e51c51e",
+  "lockfileHash": "0b2ce580",
+  "browserHash": "f5605250",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "6215d2ff",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "7d0d0edd",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "2f49da24",
+      "needsInterop": false
+    },
+    "react-toastify": {
+      "src": "../../node_modules/react-toastify/dist/react-toastify.esm.mjs",
+      "file": "react-toastify.js",
+      "fileHash": "eba49e83",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "ea9dd195",
+      "needsInterop": false
+    },
+    "lucide-react": {
+      "src": "../../node_modules/lucide-react/dist/esm/lucide-react.js",
+      "file": "lucide-react.js",
+      "fileHash": "20efc815",
+      "needsInterop": false
+    },
+    "@zegocloud/zego-uikit-prebuilt": {
+      "src": "../../node_modules/@zegocloud/zego-uikit-prebuilt/zego-uikit-prebuilt.js",
+      "file": "@zegocloud_zego-uikit-prebuilt.js",
+      "fileHash": "4dbfd15e",
+      "needsInterop": true
+    },
+    "framer-motion": {
+      "src": "../../node_modules/framer-motion/dist/es/index.mjs",
+      "file": "framer-motion.js",
+      "fileHash": "ea798a86",
+      "needsInterop": false
+    },
+    "react-icons/hi": {
+      "src": "../../node_modules/react-icons/hi/index.mjs",
+      "file": "react-icons_hi.js",
+      "fileHash": "98d8c57a",
+      "needsInterop": false
+    },
+    "react-icons/md": {
+      "src": "../../node_modules/react-icons/md/index.mjs",
+      "file": "react-icons_md.js",
+      "fileHash": "b0bcdf9c",
+      "needsInterop": false
+    },
+    "react-markdown": {
+      "src": "../../node_modules/react-markdown/index.js",
+      "file": "react-markdown.js",
+      "fileHash": "0591b51c",
+      "needsInterop": false
+    },
+    "remark-gfm": {
+      "src": "../../node_modules/remark-gfm/index.js",
+      "file": "remark-gfm.js",
+      "fileHash": "a6cbdafd",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-IGAL4HQT": {
+      "file": "chunk-IGAL4HQT.js"
+    },
+    "chunk-RZSASJON": {
+      "file": "chunk-RZSASJON.js"
+    },
+    "chunk-V6ZLOIQL": {
+      "file": "chunk-V6ZLOIQL.js"
+    },
+    "chunk-JMVEG3FK": {
+      "file": "chunk-JMVEG3FK.js"
+    },
+    "chunk-TWJRYSII": {
+      "file": "chunk-TWJRYSII.js"
+    },
+    "chunk-DC5AMYBS": {
+      "file": "chunk-DC5AMYBS.js"
+    }
+  }
+}
