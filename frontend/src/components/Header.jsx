@@ -1,10 +1,40 @@
 import React from "react";
 import { assets } from "../assets/assets";
 import { Link } from 'react-router-dom';
+import { useMemo } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { motion } from "framer-motion"
 
 // import {chatbot} from '../assets/assets'
 
 const Header = () => {
+
+  const [titleNumber, setTitleNumber] = useState(0);
+  const titles = useMemo(
+    () => [
+      "24/7 support",
+      "expert care",
+      "quick response",
+      "AI assistance",
+      "personalized",
+    ],
+    []
+  );
+
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      if (titleNumber === titles.length - 1) {
+        setTitleNumber(0);
+      } else {
+        setTitleNumber(titleNumber + 1);
+      }
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, [titleNumber, titles]);
+
+
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-indigo-800 to-purple-700">
@@ -20,13 +50,34 @@ const Header = () => {
 
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Your Health<br/> Your Way —
-                <span className="mt-3 block bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-transparent">
-                Anytime, Anywhere
+                Your Health<br /> Your Way —
+                <span className="text-rose-600 relative flex  overflow-hidden text-center md:pb-20 md:pt-2">
+
+                  {titles.map((title, index) => (
+                    <motion.span
+                      key={index}
+                      className="absolute font-semibold"
+                      initial={{ opacity: 0, y: "-100" }}
+                      transition={{ type: "spring", stiffness: 50 }}
+                      animate={
+                        titleNumber === index
+                          ? {
+                            y: 0,
+                            opacity: 1,
+                          }
+                          : {
+                            y: titleNumber > index ? -150 : 150,
+                            opacity: 0,
+                          }
+                      }
+                    >
+                      {title}
+                    </motion.span>
+                  ))}
                 </span>
               </h1>
               <p className="text-lg text-purple-100 leading-relaxed max-w-xl">
-                Connect with top-rated doctors for personalized care. 
+                Connect with top-rated doctors for personalized care.
                 Schedule appointments seamlessly and take control of your health journey.
               </p>
             </div>
@@ -111,7 +162,7 @@ const Header = () => {
 
 
 
-              <div className="w-16 rounded-full overflow-hidden" style={{position: "fixed", top: "42rem", left: "83%"}}>
+              <div className="w-16 rounded-full overflow-hidden" style={{ position: "fixed", top: "42rem", left: "83%" }}>
                 <Link to="/chatbot">
                   <img className="rounded-full" src={assets.chatbot} alt="chatbot" />
                 </Link>

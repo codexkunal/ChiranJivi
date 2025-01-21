@@ -14,7 +14,8 @@ const Navbar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [aqi, setAqi] = useState(54);
 
-  const pincode = userData.pincode;
+  // const pincode = userData.pincode;
+  const pincode = 307026;
 
 
   useEffect(() => {
