@@ -14,7 +14,7 @@ const Appointment = () => {
 
   const navigate = useNavigate();
   const [docInfo, setDocInfo] = useState(null);
-  const [reportImg, setreportImg] = useState(false)
+  const [reportImg, setreportImg] = useState('')
   const [docSlots, setDocSlots] = useState([]);
   const [slotIndex, setSlotIndex] = useState(0);
   const [slotTime, setSlotTime] = useState('');
@@ -27,6 +27,8 @@ const Appointment = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+    setreportImg(e.target.files[0])
+    console.log(e.target.files[0]);
     if (file) {
       const reader = new FileReader();
       reader.onload = () => setImage(reader.result);
@@ -87,17 +89,27 @@ const Appointment = () => {
       toast.warn('Login to book appointment')
       return navigate('/login')
     }
-
+    
+    
+    
     try {
       const date = docSlots[slotIndex][0].datetime
       let day = date.getDate()
       let month = date.getMonth()+1
       let year = date.getFullYear()
-
+      
       const slotDate = day+"_"+month+"_"+year
+      const formData = new FormData();
+    formData.append("image", reportImg); 
+    formData.append('docId',docId)
+    formData.append('slotDate',slotDate)
+    formData.append('slotTime',slotTime)
+    formData.append('symptoms',speciality)
+    
 
       console.log({slotDate,docId,speciality});
-      const {data} = await axios.post(backendUrl+'/api/user/book-appointment', {docId, slotDate, slotTime,symptoms:speciality, reportImg}, {headers: {token}})
+      console.log("aaaaaaaaaaaaa",reportImg);
+      const {data} = await axios.post(backendUrl+'/api/user/book-appointment', formData, {headers: {token}})
       
       if(data.success){
         toast.success(data.message)

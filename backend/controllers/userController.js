@@ -266,6 +266,8 @@ const updateProfile = async (req, res) => {
 const bookAppointment = async (req, res) => {
   try {
     const { userId, docId, slotDate, slotTime, symptoms } = req.body;
+    const imageFile = req.file;
+    console.log("image", imageFile);
 
     const docData = await doctorModel.findById(docId).select('-password');
     if (!docData.available) {
@@ -284,15 +286,23 @@ const bookAppointment = async (req, res) => {
     }
 
     const userData = await userModel.findById(userId).select('-password');
-
+    let imageUrl ="";
     delete docData.slots_booked;
-
+    if (imageFile) {
+      const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
+        resource_type: "image"
+        
+      });
+      imageUrl = imageUpload.secure_url;
+  
+    }
     const appointmentData = {
       userId,
       docId,
       userData,
       docData,
       amount: docData.fees,
+      reportImg:imageUrl,
       slotTime,
       slotDate,
       symptoms,
@@ -301,7 +311,7 @@ const bookAppointment = async (req, res) => {
 
     const newAppointment = new appointmentModel(appointmentData);
     await newAppointment.save();
-
+    console.log("app",newAppointment);
     await doctorModel.findByIdAndUpdate(docId, { slots_booked });
 
     const Allusers = await userModel.find(
