@@ -3,6 +3,7 @@ import {assets} from '../assets/assets'
 import { AdminContext } from '../context/AdminContext'
 import {useNavigate} from 'react-router-dom'
 import { DoctorContext } from '../context/DoctorContext'
+import logo from '../assets/mainLogo.jpg'
 
 const Navbar = () => {
 
@@ -25,7 +26,7 @@ const Navbar = () => {
         <div className='flex items-center gap-2 text-xs'>
         <img
           className="cursor-pointer"
-          src={assets.admin_logo}
+          src={logo}
           alt=""
           style={{ width: "50px", height: "50px" }}
         />
