@@ -14,9 +14,9 @@ import { useNavigate,useSearchParams } from "react-router-dom";
 
 function HospitalSkeleton() {
   return (
-    <div className="group p-6 rounded-xl border bg-card animate-pulse">
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
+    <div className="group p-6 rounded-xl border bg-card animate-pulse ">
+      <div className="flex items-start justify-between ">
+        <div className="flex-1 ">
           <div className="h-7 bg-muted-foreground/20 rounded w-48 mb-3" />
           <div className="flex items-center gap-2 mb-4">
             <div className="w-4 h-4 rounded-full bg-muted-foreground/20" />
@@ -92,11 +92,11 @@ function HospitalsContent() {
   }
 
   return (
-    <div className="space-y-4 md:p-0 p-4 ">
+    <div className="space-y-4 md:p-0 p-4 w-full flex-wrap">
       {hospitals.map((hospital) => (
         <div
           key={hospital.id}
-          className="group p-6 rounded-xl border bg-card hover:shadow-md transition-shadow"
+          className="group p-6 rounded-xl border bg-card hover:shadow-md transition-shadow bg-slate-200"
         >
           <div className="flex items-start justify-between">
             <div className="flex-1">
@@ -114,14 +114,14 @@ function HospitalsContent() {
                 View on map
               </a>
             </div>
-            <button
+            {/* <button
               variant="secondary"
               className="gap-2"
               onClick={() => handleChatClick(hospital.id)}
             >
               <MessageSquare className="h-4 w-4" />
               Chat
-            </button>
+            </button> */}
           </div>
         </div>
       ))}
