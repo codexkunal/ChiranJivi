@@ -18,7 +18,7 @@ export default function SearchNearby() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto px-4 sm:px-0  border border-black rounded-xl mb-5">
+    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto px-4 sm:px-0  border border-black rounded-xl mb-44 mt-28">
       <div className="relative flex items-center">
         <div className="relative w-full">
           <input

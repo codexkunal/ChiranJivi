@@ -148,7 +148,7 @@ const Navbar = () => {
                     <button className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-purple-500 transition-colors duration-200">
                       <div className="relative">
                         <img
-                          // src={userData.image}
+                          src={userData.image}
                           alt="Profile"
                           className="w-9 h-9 rounded-full object-cover ring-2 ring-purple-300"
                         />
